@@ -1,0 +1,28 @@
+---
+replicaCount: 1
+
+image:
+  repository: 345156409809.dkr.ecr.eu-west-1.amazonaws.com/plt.test
+  pullPolicy: IfNotPresent
+  tag: test1
+
+serviceAccount:
+  create: true
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 200Mi
+  requests:
+    cpu: 100m
+    memory: 100Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
